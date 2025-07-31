@@ -5,7 +5,7 @@ from torch.utils.data import DataLoader
 from transformers import AutoTokenizer
 from datasets import load_dataset
 
-from tqdm import tqdm
+from tqdm import tqdm  # type: ignore
 from sklearn.metrics import f1_score
 import numpy as np
 import random
