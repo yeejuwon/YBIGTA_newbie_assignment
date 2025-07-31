@@ -15,7 +15,7 @@ from model import MyGRULanguageModel
 from config import *
 
 
-def set_seed(seed=7):
+def set_seed(seed=8):
     """Set seed for reproducibility"""
     random.seed(seed)
     np.random.seed(seed)
@@ -28,7 +28,7 @@ def set_seed(seed=7):
 
 if __name__ == "__main__":
     # Set seed for reproducibility
-    set_seed(7)
+    set_seed(8)
     
     # load pretrained tokenizer
     tokenizer = AutoTokenizer.from_pretrained("bert-base-uncased")
