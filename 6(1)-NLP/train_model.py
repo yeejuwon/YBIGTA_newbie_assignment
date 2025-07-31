@@ -7,13 +7,29 @@ from datasets import load_dataset
 
 from tqdm import tqdm
 from sklearn.metrics import f1_score
+import numpy as np
+import random
 
 from word2vec import Word2Vec
 from model import MyGRULanguageModel
 from config import *
 
 
+def set_seed(seed=7):
+    """Set seed for reproducibility"""
+    random.seed(seed)
+    np.random.seed(seed)
+    torch.manual_seed(seed)
+    torch.cuda.manual_seed(seed)
+    torch.cuda.manual_seed_all(seed)
+    torch.backends.cudnn.deterministic = True
+    torch.backends.cudnn.benchmark = False
+
+
 if __name__ == "__main__":
+    # Set seed for reproducibility
+    set_seed(7)
+    
     # load pretrained tokenizer
     tokenizer = AutoTokenizer.from_pretrained("bert-base-uncased")
     vocab_size = tokenizer.vocab_size
